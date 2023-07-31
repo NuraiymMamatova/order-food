@@ -26,11 +26,13 @@ export const MealsSummary = () => {
 
 const MainImageWrapper = styled("div")`
   width: 100%;
-  height: 25rem;
+  height: 20rem;
   z-index: 0;
   overflow: hidden;
   & > img {
     object-fit: cover;
+    height: 100%;
+    width: 100%;
   }
 `;
 

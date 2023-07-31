@@ -1,5 +1,4 @@
 import React from "react";
-import { BasketIcon } from "../../assets";
 import { styled } from "styled-components";
 import { HeaderCardButton } from "./HeaderCardButton";
 
@@ -13,7 +12,7 @@ export const Header = () => {
 };
 
 const StyledHeader = styled("header")`
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
