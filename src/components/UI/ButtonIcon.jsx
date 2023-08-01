@@ -1,9 +1,9 @@
 import React from "react";
 import { css, styled } from "styled-components";
 
-export const ButtonIcon = ({ Icon, disabled }) => {
+export const ButtonIcon = ({ Icon, disabled, onClick }) => {
   return (
-    <StyledIcon disabled={disabled}>
+    <StyledIcon disabled={disabled} onClick={onClick}>
       <Icon />
     </StyledIcon>
   );
@@ -94,5 +94,6 @@ const StyledIcon = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${getBorder}
+  ${getBorder};
+  cursor: pointer;
 `;

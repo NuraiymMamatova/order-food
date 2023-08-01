@@ -57,12 +57,12 @@ const BACKGROUND_VARIANTS = {
     active: "#993108",
     disabled: "transparent",
   },
-  // contained: {
-  //   default: "#8A2B06",
-  //   hover: "#7E2A0A",
-  //   active: "#993108",
-  //   disabled: "#CAC6C4",
-  // },
+  contained: {
+    default: "#8A2B06",
+    hover: "#7E2A0A",
+    active: "#993108",
+    disabled: "#CAC6C4",
+  },
 };
 
 const BUTTON_SIZES = {
@@ -78,11 +78,12 @@ const BUTTON_WEIGHTS = {
 const getColor = (props) => {
   let color = props.variant;
 
-  // if (color === "contained") {
-  //   color = "primary";
-  // }
+  if (color === "contained") {
+    color = "primary";
+  }
 
   const currentVariant = COLOR_VARIANTS[color];
+
   return color === "primary"
     ? css`
         color: ${currentVariant};
@@ -92,11 +93,12 @@ const getColor = (props) => {
       `
     : css`
         color: ${currentVariant.default};
+
         &:active:not(:disabled),
         &:hover:not(:disabled) {
-          color: ${currentVariant.primary};
+          color: ${COLOR_VARIANTS.primary};
           & path {
-            stroke: ${currentVariant.primary};
+            stroke: ${COLOR_VARIANTS.primary};
           }
         }
 
@@ -159,4 +161,5 @@ const StyledButton = styled.button`
   display: flex;
   gap: 10px;
   align-items: center;
+  cursor: pointer;
 `;

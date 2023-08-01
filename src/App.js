@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { Cart } from "./components/cart/Cart";
 import { Header } from "./components/header/Header";
 import { MealsSummary } from "./components/meals-summary/MealsSummary";
 import { Meals } from "./components/meals/Meals";
+import { ModalContext } from "./store/modal-context";
 
 const DUMMY_MEALS = [
   {
@@ -30,11 +33,13 @@ const DUMMY_MEALS = [
 ];
 
 function App() {
+  const { isModalOpen, onClose } = useContext(ModalContext);
   return (
     <div>
       <Header />
       <MealsSummary />
       <Meals meals={DUMMY_MEALS} />
+      {isModalOpen && <Cart onClose={onClose} />}
     </div>
   );
 }

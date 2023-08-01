@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { styled } from "styled-components";
+import { CartContext } from "../../store/cart-context";
 import { MealItemForm } from "./MealItemForm";
 
 export const MealItem = ({ id, title, description, price }) => {
+  const { onAddMeal } = useContext(CartContext);
+  const addMealToCartHandler = (amount) => {
+    onAddMeal({ title, price, amount, id });
+  };
   return (
     <StyledMealItem>
       <div>
@@ -11,7 +16,7 @@ export const MealItem = ({ id, title, description, price }) => {
         <MealPrice>{Number(price).toFixed(2)}</MealPrice>
       </div>
 
-      <MealItemForm id={id} />
+      <MealItemForm id={id} onAddMeal={addMealToCartHandler} />
     </StyledMealItem>
   );
 };
