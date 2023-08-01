@@ -39,7 +39,10 @@ export const Cart = ({ onClose }) => {
           </Button>
 
           <Button
-            onClick={() => console.log("ORDER")}
+            onClick={() => {
+              alert("SUCCESSFULLY ORDERED!");
+              onClose();
+            }}
             disabled={!addedMeals.filter((meal) => meal.amount).length}
             variant="contained"
           >

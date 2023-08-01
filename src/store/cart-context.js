@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 
 export const CartContext = React.createContext({
   addedMeals: [],
@@ -6,13 +6,28 @@ export const CartContext = React.createContext({
   onAddMeal: () => {},
 });
 
+const reducer = (prevState, { type, payload }) => {
+  switch (type) {
+    case "ADD_MEAL":
+      return { ...prevState, addedMeals: [...prevState.addedMeals, payload] };
+    case "REPLACE_MEALS":
+      return { ...prevState, addedMeals: payload };
+    default:
+      return prevState;
+  }
+};
+
+const initialState = {
+  addedMeals: [],
+};
+
 export const CartProvider = ({ children }) => {
-  const [addedMeals, setAddedMeals] = useState([]);
+  const [{ addedMeals }, dispatch] = useReducer(reducer, initialState);
 
   const addNewHandler = (newMeal, variant) => {
     const currentIndex = addedMeals.findIndex((m) => m.id === newMeal.id);
     if (currentIndex === -1) {
-      return setAddedMeals([...addedMeals, newMeal]);
+      return dispatch({ type: "ADD_MEAL", payload: newMeal });
     }
 
     const newMeals = addedMeals.map((meal) => {
@@ -31,7 +46,7 @@ export const CartProvider = ({ children }) => {
 
     const filteredMeals = newMeals.filter((meal) => !meal.amount <= 0);
 
-    setAddedMeals(filteredMeals);
+    dispatch({ type: "REPLACE_MEALS", payload: filteredMeals });
   };
 
   return (
