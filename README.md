@@ -5,7 +5,7 @@ The Food Order web application allows us to order food online. Without leaving y
 Bon appetit!
 
 ## Demo
-[![hhhh](https://img.shields.io/badge/Look_at_the_demo-orange.svg)](https://nuraiymmamatova.github.io/order-food/)
+[![MIT License](https://img.shields.io/badge/Look_at_the_demo-orange.svg)](https://nuraiymmamatova.github.io/order-food/)
 
 ## Tech Stack
 
