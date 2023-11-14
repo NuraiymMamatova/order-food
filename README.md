@@ -4,8 +4,8 @@
 The Food Order web application allows us to order food online. Without leaving your home, you need to choose what you want and in what quantity and press the order button. You don't have to go shopping or order them, think about how to prepare the dish so that it turns out delicious. Everything will already be done for you. You need to order and wait, and then of course eat :)
 Bon appetit!
 
-## Demo 
-[(https://img.shields.io/badge/Look_at_the_demo-orange.svg)](https://nuraiymmamatova.github.io/order-food/)
+## Demo
+![MIT License](https://img.shields.io/badge/Look_at_the_demo-orange.svg)](https://nuraiymmamatova.github.io/order-food/)
 
 ## Tech Stack
 
